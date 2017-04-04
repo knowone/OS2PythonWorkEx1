@@ -10,7 +10,14 @@ while menu != 0:
             if s == i:
                 print(i)
     elif menu == 2:
-        pass
+        def find():
+            for x in range(100):
+                for y in range(100):
+                    for z in range(100):
+                        if ((3*x) + (10*y) + (15*z) == 400) & ((x + y + z) == 100):
+                            return [x, y, z]
+        print(find())
+
     else:
         menu = int(input("Error. Try again:\n(0 to quit)\n"))
     menu = int(input("Question number?\n"))
