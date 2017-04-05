@@ -1,4 +1,7 @@
 def quest1():
+    """
+    Question 1: prints all numbers that their sum of digits cubed are equal to themselves.
+    """
     for i in range(100, 500):
         j = i
         s = 0
@@ -10,18 +13,32 @@ def quest1():
 
 
 def quest2():
+    """
+    Question 2: Solves the question - if you buy 100 tickets for 400$, when each ticket costs either 3$,10$ or 15$
+        How many tickets of each type did you buy?
+    """
+
     def find(tickets, budget):
+        """Finds, for a given tickets amount and budget how many tickets of each type you bought"""
+
         for x in range(tickets):
             for y in range(tickets):
                 for z in range(tickets):
                     if ((3*x) + (10*y) + (15*z) == budget) & ((x + y + z) == tickets):
                         return[str(x) + " tickets for 3$", str(y) + " tickets for 10$", str(z) + " tickets for 15$"]
+
     print("To purchase 100 tickets with 400$ you need:")
     for found in find(100, 400):
         print(found)
 
 
 def quest3():
+    """
+    Question 3: Plays with user 7 boom! where starting player is selected randomly for extra fun.
+        Each player types the next number, but if the number is a multiple of 7 or has 7 in it then player must type
+        "Boom" instead of the number. Also correct order of numbers must be kept. 
+        Player is winner if was able to get to 30.
+    """
     from random import randint
     turn = randint(1, 2)
     print("7 Boom!")
@@ -96,16 +113,11 @@ def getint(z):
     except ValueError:
         return "invalid"
 
+quest = [quest1, quest2, quest3, quest4]
 menu = getint(input("Question number? (0 to quit)\n"))
 while menu != 0:
-    if menu == 1:
-        quest1()
-    elif menu == 2:
-        quest2()
-    elif menu == 3:
-        quest3()
-    elif menu == 4:
-        quest4()
+    if 0 < menu <= 4:
+        quest[menu-1]()
     else:
         print("Invalid choice. Try again..\n")
     menu = getint(input("Question number? (0 to quit)\n"))
