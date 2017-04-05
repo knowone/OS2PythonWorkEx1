@@ -22,9 +22,10 @@ while menu != 0:
     elif menu == 3:
         from random import randint
         turn = randint(1, 2)
-        def getint(x):
+
+        def getint(z):
             try:
-                return int(x)
+                return int(z)
             except ValueError:
                 return False
         print("7 Boom!")
@@ -56,6 +57,41 @@ while menu != 0:
                 turn += 1
             if x == 30:
                 print("You Win!")
+    elif menu == 4:
+
+        def insert(obj, stack: list):
+            stack.append(obj)
+
+        def eject(stack: list):
+            if not stack:
+                return "Empty"
+            else:
+                obj = stack.pop()
+                return obj
+
+        def prt_stack(stack: list):
+            if not stack:
+                print("Empty")
+            else:
+                for index, obj in enumerate(stack[::-1]):
+                    print(index, obj)
+
+        my_stack = []
+        status = ""
+        user_choice = input("Enter a command (i, e, p):\n")
+        while 1:
+            if user_choice == 'i':
+                obj_str = input("Enter string to insert to stack:\n")
+                insert(obj_str, my_stack)
+            elif user_choice == 'e':
+                status = eject(my_stack)
+                if status == "Empty":
+                    break
+            elif user_choice == 'p':
+                prt_stack(my_stack)
+            else:
+                print("Invalid choice. Try again..")
+            user_choice = input("Enter a command (i, e, p):\n")
     else:
         menu = int(input("Error. Try again:\n(0 to quit)\n"))
     menu = int(input("Question number?\n"))
