@@ -1,3 +1,4 @@
+# --------------------------------------------------------------------------------------------------------------------
 def quest1():
     """
     Question 1: prints all numbers that their sum of digits cubed are equal to themselves.
@@ -12,6 +13,7 @@ def quest1():
             print(i)
 
 
+# --------------------------------------------------------------------------------------------------------------------
 def quest2():
     """
     Question 2: Solves the question - if you buy 100 tickets for 400$, when each ticket costs either 3$,10$ or 15$
@@ -32,6 +34,7 @@ def quest2():
         print(found)
 
 
+# --------------------------------------------------------------------------------------------------------------------
 def quest3():
     """
     Question 3: Plays with user 7 boom! where starting player is selected randomly for extra fun.
@@ -72,18 +75,39 @@ def quest3():
             print("You Win!")
 
 
+# --------------------------------------------------------------------------------------------------------------------
 def quest4():
+    """
+    Question 4: Implement a stack using list with operations:
+        i - insert (push) to stack
+        e - eject(pop) from stack
+        p - print the stack
+        
+        When stack is empty, print will print "Empty"
+        If stack is empty and e (pop) is called, the function will exit.
+    """
+
     def insert(obj, stack: list):
+        """Using list, appends to the end of the list.
+        obj can be anything. Must be a printable object"""
+
         stack.append(obj)
 
     def eject(stack: list):
-        if not stack:
+        """using list, pop the end of the list from the list.
+        returns the ejected object"""
+
+        if not stack:   # not stack will return true if list is [] (empty)
             return "Empty"
         else:
             obj = stack.pop()
             return obj
 
     def prt_stack(stack: list):
+        """Print the list in 2 columns starting from 0 index.
+        Prints the list backwards to simulate stack order (FIFO)
+        Prints "Empty" if list is empty"""
+
         if not stack:
             print("Empty")
         else:
@@ -99,7 +123,7 @@ def quest4():
         elif user_choice == 'e':
             status = eject(my_stack)
             if status == "Empty":
-                break
+                break   # stop only if stack is already empty
         elif user_choice == 'p':
             prt_stack(my_stack)
         else:
@@ -107,18 +131,34 @@ def quest4():
         user_choice = input("Enter a command (i, e, p):\n")
 
 
+# --------------------------------------------------------------------------------------------------------------------
 def getint(z):
+    """
+    Error preventing convert-to-int function.
+        Catches ValueError exceptions if int() is being called with a string type argument.
+    """
+
     try:
         return int(z)
     except ValueError:
         return "invalid"
 
-quest = [quest1, quest2, quest3, quest4]
-menu = getint(input("Question number? (0 to quit)\n"))
-while menu != 0:
-    if 0 < menu <= 4:
-        quest[menu-1]()
-    else:
-        print("Invalid choice. Try again..\n")
-    menu = getint(input("Question number? (0 to quit)\n"))
 
+# --------------------------------------------------------------------------------------------------------------------
+def main():
+    """
+    Prompts a selection for user to choose between the 4 assignments.
+    1,2,3,4 corresponds to the question numbers.
+    0 will exit the program.
+    For all other inputs, the program will display a retry message. 
+    """
+    quest = [quest1, quest2, quest3, quest4]
+    menu = getint(input("Question number? (0 to quit)\n"))
+    while menu != 0:
+        if 0 < menu <= 4:
+            quest[menu-1]()
+        else:
+            print("Invalid choice. Try again..\n")
+        menu = getint(input("Question number? (0 to quit)\n"))
+
+main()
