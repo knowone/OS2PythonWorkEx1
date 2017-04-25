@@ -1,7 +1,8 @@
-# --------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 def quest1():
     """
-    Question 1: prints all numbers that their sum of digits cubed are equal to themselves.
+    Question 1: prints all numbers that their sum of digits cubed are equal to 
+    themselves.
     """
     for i in range(100, 500):
         j = i
@@ -13,33 +14,40 @@ def quest1():
             print(i)
 
 
-# --------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 def quest2():
     """
-    Question 2: Solves the question - if you buy 100 tickets for 400$, when each ticket costs either 3$,10$ or 15$
+    Question 2: Solves the question - if you buy 100 tickets for 400$, when each
+    ticket costs either 3$,10$ or 15$
         How many tickets of each type did you buy?
     """
 
     def find(tickets, budget):
-        """Finds, for a given tickets amount and budget how many tickets of each type you bought"""
+        """Finds, for a given tickets amount and budget how many tickets of each
+         type you bought"""
 
         for x in range(tickets):
             for y in range(tickets):
                 for z in range(tickets):
-                    if ((3*x) + (10*y) + (15*z) == budget) & ((x + y + z) == tickets):
-                        return[str(x) + " tickets for 3$", str(y) + " tickets for 10$", str(z) + " tickets for 15$"]
+                    if ((3*x) + (10*y) + (15*z) == budget) & \
+                            ((x + y + z) == tickets):
+                        return[str(x) + " tickets for 3$", str(y) +
+                               " tickets for 10$", str(z) + " tickets for 15$"]
 
     print("To purchase 100 tickets with 400$ you need:")
     for found in find(100, 400):
         print(found)
 
 
-# --------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 def quest3():
     """
-    Question 3: Plays with user 7 boom! where starting player is selected randomly for extra fun.
-        Each player types the next number, but if the number is a multiple of 7 or has 7 in it then player must type
-        "Boom" instead of the number. Also correct order of numbers must be kept. 
+    Question 3: Plays with user 7 boom! where starting player is selected 
+        randomly for extra fun.
+        Each player types the next number, but if the number is a multiple of 7 
+        or has 7 in it then player must type
+        "Boom" instead of the number. Also correct order of numbers must be 
+        kept. 
         Player is winner if was able to get to 30.
     """
     from random import randint
@@ -59,7 +67,8 @@ def quest3():
         elif turn == 1:
             user = input("You: ")
             if ((x % 7) == 0) | ((x % 10) == 7):
-                if (user != "Boom") & (user != "boom") & (user != "Boom!") & (user != "boom!"):
+                if (user != "Boom") & (user != "boom") & (user != "Boom!") & \
+                        (user != "boom!"):
                     print("You loose!")
                     break
             else:
@@ -75,7 +84,7 @@ def quest3():
             print("You Win!")
 
 
-# --------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 def quest4():
     """
     Question 4: Implement a stack using list with operations:
@@ -115,7 +124,8 @@ def quest4():
                 print(index, obj)
 
     my_stack = []
-    user_choice = input("Enter a command (i to insert, e to pop or p to print):\n")
+    user_choice = input("Enter a command (i to insert, "
+                        "e to pop or p to print):\n")
     while 1:
         if user_choice == 'i':
             obj_str = input("Enter string to insert to stack:\n")
@@ -131,11 +141,12 @@ def quest4():
         user_choice = input("Enter a command (i, e, p):\n")
 
 
-# --------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 def getint(z):
     """
     Error preventing convert-to-int function.
-        Catches ValueError exceptions if int() is being called with a string type argument.
+        Catches ValueError exceptions if int() is being called with a string
+        type argument.
     """
 
     try:
@@ -144,7 +155,7 @@ def getint(z):
         return "invalid"
 
 
-# --------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 def main():
     """
     Prompts a selection for user to choose between the 4 assignments.
@@ -160,5 +171,6 @@ def main():
         else:
             print("Invalid choice. Try again..\n")
         menu = getint(input("Question number? (0 to quit)\n"))
-
+# --------------------------- Run The Program ----------------------------------
 main()
+# ------------------------------------------------------------------------------
