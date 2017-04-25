@@ -115,7 +115,7 @@ def quest4():
                 print(index, obj)
 
     my_stack = []
-    user_choice = input("Enter a command (i, e, p):\n")
+    user_choice = input("Enter a command (i to insert, e to pop or p to print):\n")
     while 1:
         if user_choice == 'i':
             obj_str = input("Enter string to insert to stack:\n")
